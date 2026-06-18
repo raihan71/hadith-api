@@ -28,6 +28,16 @@ class Server {
       console.log(`Server listening on http://localhost:${this.port}`)
     })
   }
+
+  public getApplication(): Application {
+    return this.application
+  }
 }
 
-export default new Server().run()
+const server = new Server()
+
+if (require.main === module) {
+  server.run()
+}
+
+export default server.getApplication()
